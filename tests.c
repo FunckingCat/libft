@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 18:29:47 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/06 19:02:44 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 #include <stdlib.h>
 #include <math.h>
 #include <ctype.h>
+#include <time.h>
 
 #include "libft.h"
 
 void	pr(char *s);
 void	assert_str(char *s1, char *s2);
 void	assert_int(int s1, int s2);
+char	*ft_gen_random_str(void);
 void	test_memset(void *(*f)(void *, int, size_t),
 			void *(*t)(void *, int, size_t), int c, int d);
 void	test_bzero(void (*f)(void *, size_t),
@@ -31,6 +33,7 @@ int	main(void)
 {
 	int		d;
 
+	srand(time(NULL));
 	if (0)
 	{
 		pr("\n FT_ISALPHA");
@@ -117,9 +120,9 @@ int	main(void)
 		test_memset(ft_memset, memset, 200, 21);
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
-		pr("\n FT_MEMSET");
+		pr("\n FT_BZERO");
 		test_bzero(ft_bzero, bzero, 12);
 		test_bzero(ft_bzero, bzero, 1);
 		test_bzero(ft_bzero, bzero, 2);
@@ -127,6 +130,12 @@ int	main(void)
 		test_bzero(ft_bzero, bzero, 0);
 		test_bzero(ft_bzero, bzero, 21);
 		test_bzero(ft_bzero, bzero, 101);
+		pr("<---------->");
+	}
+	if (1)
+	{
+		pr("\n FT_BZERO");
+		pr(ft_gen_random_str());
 		pr("<---------->");
 	}
 	return (0);
@@ -151,6 +160,25 @@ void	assert_int(int s1, int s2)
 		printf("RIGHT: '%d' -- '%d' \n", s1, s2);
 	else
 		printf("ERROR!!! ------------->: '%d' -- '%d' \n", s1, s2);
+}
+
+char	*ft_gen_random_str(void)
+{
+	int		n;
+	int		f;
+	char	*res;
+
+	n = rand() % 20 + 10;
+	printf("--->%d \n", n);
+	res = malloc(n);
+	res[--n] = '\0';
+	while (--n > -1)
+	{
+		f = rand() % 97 + 30;
+		printf("%d %d \n", n, f);
+		res[n] = f;
+	}
+	return (res);
 }
 
 void	test_memset(void *(*f)(void *, int, size_t),
