@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 16:25:12 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/06 17:36:30 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@
 void	pr(char *s);
 void	assert_str(char *s1, char *s2);
 void	assert_int(int s1, int s2);
+void	test_memset(void *(*f)(void *, int, size_t),
+			void *(*t)(void *, int, size_t), int c, int d);
 
 int	main(void)
 {
-	int	d;
+	int		d;
 
 	if (0)
 	{
@@ -78,7 +80,7 @@ int	main(void)
 	if (0)
 	{
 		pr("\n FT_ISPRINT");
-		d = -10;
+		d = -200;
 		while (d < 150)
 		{
 			printf("%d --> ", d);
@@ -87,7 +89,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
 		pr("\n FT_STRLEN");
 		assert_int(ft_strlen(""), strlen(""));
@@ -98,6 +100,17 @@ int	main(void)
 		assert_int(ft_strlen("!adfvshdfbg"), strlen("!adfvshdfbg"));
 		assert_int(ft_strlen("\n"), strlen("\n"));
 		assert_int(ft_strlen("\t"), strlen("\t"));
+		pr("<---------->");
+	}
+	if (1)
+	{
+		pr("\n FT_MEMSET");
+		//test_memset(ft_memset, memset, 'o', 12);
+		//test_memset(ft_memset, memset, '\n', 1);
+		//test_memset(ft_memset, memset, '\t', 2);
+		//test_memset(ft_memset, memset, ' ', 4);
+		//test_memset(ft_memset, memset, -405, 42);
+		test_memset(ft_memset, memset, '%', 21);
 		pr("<---------->");
 	}
 	return (0);
@@ -122,4 +135,17 @@ void	assert_int(int s1, int s2)
 		printf("RIGHT: '%d' -- '%d' \n", s1, s2);
 	else
 		printf("ERROR!!! ------------->: '%d' -- '%d' \n", s1, s2);
+}
+
+void	test_memset(void *(*f)(void *, int, size_t),
+		void *(*t)(void *, int, size_t), int c, int d)
+{
+	char	*a;
+	char	*b;
+
+	a = malloc(100);
+	b = malloc(100);
+	assert_str(f(a, c, d), t(b, c, d));
+	free(a);
+	free(b);
 }
