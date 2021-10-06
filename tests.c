@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 17:36:30 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/06 18:00:47 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,14 @@ int	main(void)
 	if (1)
 	{
 		pr("\n FT_MEMSET");
-		//test_memset(ft_memset, memset, 'o', 12);
-		//test_memset(ft_memset, memset, '\n', 1);
-		//test_memset(ft_memset, memset, '\t', 2);
-		//test_memset(ft_memset, memset, ' ', 4);
-		//test_memset(ft_memset, memset, -405, 42);
-		test_memset(ft_memset, memset, '%', 21);
+		test_memset(ft_memset, memset, 'o', 12);
+		test_memset(ft_memset, memset, '\n', 1);
+		test_memset(ft_memset, memset, '\t', 2);
+		test_memset(ft_memset, memset, ' ', 4);
+		test_memset(ft_memset, memset, -405, 22);
+		test_memset(ft_memset, memset, 47, 21);
+		test_memset(ft_memset, memset, -405, 0);
+		test_memset(ft_memset, memset, 200, 21);
 		pr("<---------->");
 	}
 	return (0);
@@ -145,6 +147,11 @@ void	test_memset(void *(*f)(void *, int, size_t),
 
 	a = malloc(100);
 	b = malloc(100);
+	for (int i = 0; i < 100; i++)
+	{
+		a[i] = '\0';
+		b[i] = '\0';
+	}
 	assert_str(f(a, c, d), t(b, c, d));
 	free(a);
 	free(b);
