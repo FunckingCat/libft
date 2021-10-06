@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 15:58:15 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/06 16:03:14 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
 		pr("\n FT_ISALNUM");
 		d = -10;
@@ -59,6 +59,18 @@ int	main(void)
 		{
 			printf("%d --> ", d);
 			assert_int(ft_isalnum(d), isalnum(d));
+			d += 1;
+		}
+		pr("<---------->");
+	}
+	if (1)
+	{
+		pr("\n FT_ISALNUM");
+		d = -10;
+		while (d < 150)
+		{
+			printf("%d --> ", d);
+			assert_int(ft_isascii(d), isascii(d));
 			d += 1;
 		}
 		pr("<---------->");
