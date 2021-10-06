@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 14:20:53 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 15:46:49 by tyamcha          ###   ########.fr       */
+/*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
+/*   Updated: 2021/10/06 15:46:35 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-
-int	ft_isalpha(int ch);
-int	ft_isdigit(int ch);
-
-#endif
+int	ft_isdigit(int ch)
+{
+	if ((ch > 47 && ch < 58))
+		return (1);
+	return (0);
+}
