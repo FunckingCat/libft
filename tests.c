@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 16:07:16 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/06 16:25:12 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(void)
 	}
 	if (0)
 	{
-		pr("\n FT_ISALNUM");
+		pr("\n FT_ISASCII");
 		d = -10;
 		while (d < 150)
 		{
@@ -75,9 +75,9 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
-		pr("\n FT_ISALNUM");
+		pr("\n FT_ISPRINT");
 		d = -10;
 		while (d < 150)
 		{
@@ -85,6 +85,19 @@ int	main(void)
 			assert_int(ft_isprint(d), isprint(d));
 			d += 1;
 		}
+		pr("<---------->");
+	}
+	if (1)
+	{
+		pr("\n FT_STRLEN");
+		assert_int(ft_strlen(""), strlen(""));
+		assert_int(ft_strlen("."), strlen("."));
+		assert_int(ft_strlen("qwer"), strlen("qwer"));
+		assert_int(ft_strlen("qwe\n qw\n "), strlen("qwe\n qw\n "));
+		assert_int(ft_strlen("\t\n\t\n\t\n\t\n "), strlen("\t\n\t\n\t\n\t\n "));
+		assert_int(ft_strlen("!adfvshdfbg"), strlen("!adfvshdfbg"));
+		assert_int(ft_strlen("\n"), strlen("\n"));
+		assert_int(ft_strlen("\t"), strlen("\t"));
 		pr("<---------->");
 	}
 	return (0);

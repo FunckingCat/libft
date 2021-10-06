@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 14:20:53 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 16:19:57 by tyamcha          ###   ########.fr       */
+/*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
+/*   Updated: 2021/10/06 16:20:02 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
+#include "libft.h"
 
-int		ft_isalpha(int ch);
-int		ft_isdigit(int ch);
-int		ft_isalnum(int ch);
-int		ft_isascii(int ch);
-int		ft_isprint(int ch);
+size_t	ft_strlen(const char *s)
+{
+	int	res;
 
-size_t	ft_strlen(const char *s);
-
-#endif
+	res = 0;
+	while (*s++)
+		res++;
+	return (res);
+}
