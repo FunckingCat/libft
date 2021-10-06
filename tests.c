@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 15:50:13 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/06 15:58:15 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,26 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
 		pr("\n FT_ISDIGIT");
-		d = -10;
-		while (d < 150)
+		d = 40;
+		while (d < 70)
 		{
 			printf("%d --> ", d);
 			assert_int(ft_isdigit(d), isdigit(d));
+			d += 1;
+		}
+		pr("<---------->");
+	}
+	if (1)
+	{
+		pr("\n FT_ISALNUM");
+		d = -10;
+		while (d < 300)
+		{
+			printf("%d --> ", d);
+			assert_int(ft_isalnum(d), isalnum(d));
 			d += 1;
 		}
 		pr("<---------->");
