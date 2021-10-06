@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 18:00:47 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/06 18:29:47 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	assert_str(char *s1, char *s2);
 void	assert_int(int s1, int s2);
 void	test_memset(void *(*f)(void *, int, size_t),
 			void *(*t)(void *, int, size_t), int c, int d);
+void	test_bzero(void (*f)(void *, size_t),
+			void (*t)(void *, size_t), int d);
 
 int	main(void)
 {
@@ -102,7 +104,7 @@ int	main(void)
 		assert_int(ft_strlen("\t"), strlen("\t"));
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
 		pr("\n FT_MEMSET");
 		test_memset(ft_memset, memset, 'o', 12);
@@ -113,6 +115,18 @@ int	main(void)
 		test_memset(ft_memset, memset, 47, 21);
 		test_memset(ft_memset, memset, -405, 0);
 		test_memset(ft_memset, memset, 200, 21);
+		pr("<---------->");
+	}
+	if (1)
+	{
+		pr("\n FT_MEMSET");
+		test_bzero(ft_bzero, bzero, 12);
+		test_bzero(ft_bzero, bzero, 1);
+		test_bzero(ft_bzero, bzero, 2);
+		test_bzero(ft_bzero, bzero, 4);
+		test_bzero(ft_bzero, bzero, 0);
+		test_bzero(ft_bzero, bzero, 21);
+		test_bzero(ft_bzero, bzero, 101);
 		pr("<---------->");
 	}
 	return (0);
@@ -153,6 +167,26 @@ void	test_memset(void *(*f)(void *, int, size_t),
 		b[i] = '\0';
 	}
 	assert_str(f(a, c, d), t(b, c, d));
+	free(a);
+	free(b);
+}
+
+void	test_bzero(void (*f)(void *, size_t),
+		void (*t)(void *, size_t), int d)
+{
+	char	*a;
+	char	*b;
+
+	a = malloc(100);
+	b = malloc(100);
+	for (int i = 0; i < 100; i++)
+	{
+		a[i] = 'a';
+		b[i] = 'a';
+	}
+	f(a, d);
+	t(b, d);
+	assert_str(a, b);
 	free(a);
 	free(b);
 }
