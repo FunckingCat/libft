@@ -138,7 +138,7 @@ int	main(void)
 		test_bzero(ft_bzero, bzero, 101);
 		pr("<---------->");
 	}
-	if (0)
+	if (1)
 	{
 		pr("\n MEMCPY");
 		for (int i = 0; i < 20; i++)
@@ -174,9 +174,9 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
-		pr("\n STRLCAT");
+		pr("\n TOUPPER TOLOWER");
 		for (int i = 0; i < 120; i += 10)
 		{
 			assert_int(ft_toupper(i), toupper(i));
