@@ -165,12 +165,22 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
 		pr("\n STRLCAT");
 		for (int i = 0; i < 20; i++)
 		{
 			test_strlcat();
+		}
+		pr("<---------->");
+	}
+	if (1)
+	{
+		pr("\n STRLCAT");
+		for (int i = 0; i < 120; i += 10)
+		{
+			assert_int(ft_toupper(i), toupper(i));
+			assert_int(ft_tolower(i), tolower(i));
 		}
 		pr("<---------->");
 	}
