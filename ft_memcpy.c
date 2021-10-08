@@ -12,4 +12,14 @@
 
 #include "libft.h"
 
-void	*memcpy(void *restrict dst, const void *restrict src, size_t n);
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+{
+	char	*ch_dst;
+	char	*ch_src;
+
+	ch_dst = (char *)dst;
+	ch_src = (char *)src;
+	while (n-- > 0)
+		*ch_dst++ = *ch_src++;
+	return (dst);
+}

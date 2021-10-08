@@ -15,7 +15,7 @@ CC := gcc
 CFLAGS := -Wall -Werror -Wextra -c
 SRC_DIR := ./
 SRC_FILES := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-	ft_strlen.c ft_memset.c ft_bzero.c 
+	ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJS = $(addprefix $(SRC_DIR), $(OBJ_FILES))

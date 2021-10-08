@@ -29,6 +29,7 @@ void	test_memset(void *(*f)(void *, int, size_t),
 			void *(*t)(void *, int, size_t), int c, int d);
 void	test_bzero(void (*f)(void *, size_t),
 			void (*t)(void *, size_t), int d);
+void	test_memcpy(void);
 
 int	main(void)
 {
@@ -135,9 +136,11 @@ int	main(void)
 	}
 	if (1)
 	{
-		pr("\n FT_BZERO");
-		for (int i = 0; i < 10; i++)
-			pr(ft_rand_str(30, 126));
+		pr("\n MEMCPY");
+		for (int i = 0; i < 20; i++)
+		{
+			test_memcpy();
+		}
 		pr("<---------->");
 	}
 	return (0);
@@ -226,6 +229,28 @@ void	test_bzero(void (*f)(void *, size_t),
 	f(a, d);
 	t(b, d);
 	assert_str(a, b);
+	free(a);
+	free(b);
+}
+
+void	test_memcpy(void)
+{
+	char	*a;
+	char	*b;
+	char	*src;
+
+	src = ft_rand_str(12,126);
+	a = malloc(100);
+	b = malloc(100);
+	for (int i = 0; i < 100; i++)
+	{
+		a[i] = '\0';
+		b[i] = '\0';
+	}
+	ft_memcpy(a, src, 5);
+	memcpy(b, src, 5);
+	assert_str(a, b);
+	free(src);
 	free(a);
 	free(b);
 }
