@@ -31,6 +31,7 @@ void	test_bzero(void (*f)(void *, size_t),
 			void (*t)(void *, size_t), int d);
 void	test_memcpy(void);
 void	test_memmove(void);
+void	test_strlcpy(void);
 
 int	main(void)
 {
@@ -100,6 +101,7 @@ int	main(void)
 	if (0)
 	{
 		pr("\n FT_STRLEN");
+		assert_int(ft_strlen(NULL), ft_strlen(NULL));
 		assert_int(ft_strlen(""), strlen(""));
 		assert_int(ft_strlen("."), strlen("."));
 		assert_int(ft_strlen("qwer"), strlen("qwer"));
@@ -144,12 +146,30 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
-		pr("\n MEMCPY");
+		pr("\n MEMMOVE");
 		for (int i = 0; i < 20; i++)
 		{
 			test_memmove();
+		}
+		pr("<---------->");
+	}
+	if (0)
+	{
+		pr("\n STRLCPY");
+		for (int i = 0; i < 20; i++)
+		{
+			test_strlcpy();
+		}
+		pr("<---------->");
+	}
+	if (0)
+	{
+		pr("\n STRLCAT");
+		for (int i = 0; i < 20; i++)
+		{
+			test_strlcat();
 		}
 		pr("<---------->");
 	}
@@ -281,6 +301,65 @@ void	test_memmove(void)
 	}
 	ft_memmove(a, src, 5);
 	memmove(b, src, 5);
+	assert_str(a, b);
+	free(src);
+	free(a);
+	free(b);
+}
+
+size_t	strlcpy(char *dst, const char *src, size_t siz)
+{
+	char *d = dst;
+	const char *s = src;
+	size_t n = siz;
+
+	if (n != 0) {
+		while (--n != 0) {
+			if ((*d++ = *s++) == '\0')
+				break;
+		}
+	}
+	if (n == 0) {
+		if (siz != 0)
+			*d = '\0';
+		while (*s++)
+			;
+	}
+	return(s - src - 1);
+}
+
+void	test_strlcpy(void)
+{
+	char	*a;
+	char	*b;
+	char	*src;
+	int		n;
+
+	n = ft_rand_int(0,20);
+	src = ft_rand_str(20,126);
+	a = malloc(100);
+	b = malloc(100);
+	printf("----------->%s   with %d symbols\n", src, n);
+	assert_int(ft_strlcpy(a, src, n), strlcpy(b, src, n));
+	assert_str(a, b);
+	free(src);
+	free(a);
+	free(b);
+}
+
+void	test_strlcat(void)
+{
+	char	*a;
+	char	*b;
+	char	*src;
+	int		n;
+
+	n = ft_rand_int(0,20);
+	src = ft_rand_str(20,126);
+	a = malloc(100);
+	b = malloc(100);
+	printf("----------->%s   with %d symbols\n", src, n);
+	assert_int(ft_strlcpy(a, src, n), strlcpy(b, src, n));
 	assert_str(a, b);
 	free(src);
 	free(a);
