@@ -33,6 +33,7 @@ void	test_memcpy(void);
 void	test_memmove(void);
 void	test_strlcpy(void);
 void	test_strlcat(void);
+void	test_strchr(void);
 
 int	main(void)
 {
@@ -138,7 +139,7 @@ int	main(void)
 		test_bzero(ft_bzero, bzero, 101);
 		pr("<---------->");
 	}
-	if (1)
+	if (0)
 	{
 		pr("\n MEMCPY");
 		for (int i = 0; i < 20; i++)
@@ -184,6 +185,15 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
+	if (1)
+	{
+		pr("\n STRCHR");
+		for (int i = 0; i < 10; i++)
+		{
+			test_strchr();
+		}
+		pr("<---------->");
+	}
 	return (0);
 }
 
@@ -194,7 +204,11 @@ void	pr(char *s)
 
 void	assert_str(char *s1, char *s2)
 {
-	if (strcmp(s1, s2) == 0 && strlen(s1) == strlen(s2))
+	if (s1 == NULL && s2 == NULL)
+		pr("RIGHT");
+	else if (s1 == NULL || s2 == NULL)
+		pr("Error");
+	else if (strcmp(s1, s2) == 0 && strlen(s1) == strlen(s2))
 		printf("RIGHT: '%s' -- '%s' \n", s1, s2);
 	else
 		printf("ERROR!!! ----------->: '%s' -- '%s' \n", s1, s2);
@@ -403,4 +417,15 @@ void	test_strlcat(void)
 	free(src);
 	free(a);
 	free(b);
+}
+
+void	test_strchr(void)
+{
+	char	a;
+	char	*src;
+
+	src = ft_rand_str(50,100);
+	a = ft_rand_int(50,100);
+	assert_str(ft_strchr(src, a), strchr(src, a));
+	free(src);
 }
