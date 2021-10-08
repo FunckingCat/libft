@@ -32,6 +32,7 @@ void	test_bzero(void (*f)(void *, size_t),
 void	test_memcpy(void);
 void	test_memmove(void);
 void	test_strlcpy(void);
+void	test_strlcat(void);
 
 int	main(void)
 {
@@ -164,7 +165,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (1)
 	{
 		pr("\n STRLCAT");
 		for (int i = 0; i < 20; i++)
@@ -347,6 +348,32 @@ void	test_strlcpy(void)
 	free(b);
 }
 
+size_t strlcat(char *dst, const char *src, size_t siz)
+{
+	register char *d = dst;
+	register const char *s = src;
+	register size_t n = siz;
+	size_t dlen;
+
+	while (n-- != 0 && *d != '\0')
+		d++;
+	dlen = d - dst;
+	n = siz - dlen;
+
+	if (n == 0)
+		return(dlen + strlen(s));
+	while (*s != '\0') {
+		if (n != 1) {
+			*d++ = *s;
+			n--;
+		}
+		s++;
+	}
+	*d = '\0';
+
+	return(dlen + (s - src));
+}
+
 void	test_strlcat(void)
 {
 	char	*a;
@@ -354,12 +381,14 @@ void	test_strlcat(void)
 	char	*src;
 	int		n;
 
-	n = ft_rand_int(0,20);
-	src = ft_rand_str(20,126);
-	a = malloc(100);
+	n = ft_rand_int(0,25);
+	src = ft_rand_str(58,59);
+	a = ft_rand_str(54,55);
+	a = realloc(a, 100);
 	b = malloc(100);
-	printf("----------->%s   with %d symbols\n", src, n);
-	assert_int(ft_strlcpy(a, src, n), strlcpy(b, src, n));
+	strlcpy(b, a, ft_strlen(a)+1);
+	printf("src %s\ndst %s\n src len %ld\n dst len %ld\n n %d\n", src, a, ft_strlen(src), ft_strlen(a), n);
+	assert_int(ft_strlcat(a, src, n), strlcat(b, src, n));
 	assert_str(a, b);
 	free(src);
 	free(a);
