@@ -23,7 +23,8 @@
 void	pr(char *s);
 void	assert_str(char *s1, char *s2);
 void	assert_int(int s1, int s2);
-char	*ft_gen_random_str(void);
+int		ft_rand_int(int from, int to);
+char	*ft_rand_str(int from, int to);
 void	test_memset(void *(*f)(void *, int, size_t),
 			void *(*t)(void *, int, size_t), int c, int d);
 void	test_bzero(void (*f)(void *, size_t),
@@ -135,7 +136,8 @@ int	main(void)
 	if (1)
 	{
 		pr("\n FT_BZERO");
-		pr(ft_gen_random_str());
+		for (int i = 0; i < 10; i++)
+			pr(ft_rand_str(30, 126));
 		pr("<---------->");
 	}
 	return (0);
@@ -162,18 +164,29 @@ void	assert_int(int s1, int s2)
 		printf("ERROR!!! ------------->: '%d' -- '%d' \n", s1, s2);
 }
 
-char	*ft_gen_random_str(void)
+int	ft_rand_int(int from, int to)
+{
+	if (from >= to)
+		return (0);
+	return (rand() % (to - from) + from);
+}
+
+char	*ft_rand_str(int from, int to)
 {
 	int		n;
 	int		f;
 	char	*res;
 
-	n = rand() % 20 + 10;
+	if (from >= to)
+		return (NULL);
+	if (from < 0 || to > 255)
+		return (NULL);
+	n = ft_rand_int(5, 20);
 	res = malloc(n);
 	res[--n] = '\0';
 	while (--n > -1)
 	{
-		f = rand() % 97 + 30;
+		f = ft_rand_int(from, to);
 		res[n] = f;
 	}
 	return (res);

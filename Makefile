@@ -29,7 +29,7 @@ all: obj $(NAME)
 obj: $(SRCS)
 
 $(SRC_DIR)%.o: $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) $< -o $@ -I libft.h
+	$(CC) $(CFLAGS) $< -o $@ 
 
 $(NAME): $(OBJS)
 	$(LIBC) $(NAME) $(OBJS)
