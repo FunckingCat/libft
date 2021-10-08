@@ -381,9 +381,9 @@ void	test_strlcat(void)
 	char	*src;
 	int		n;
 
-	n = ft_rand_int(0,25);
-	src = ft_rand_str(58,59);
-	a = ft_rand_str(54,55);
+	n = ft_rand_int(0,100);
+	src = ft_rand_str(65,125);
+	a = ft_rand_str(35,65);
 	a = realloc(a, 100);
 	b = malloc(100);
 	strlcpy(b, a, ft_strlen(a)+1);
