@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 19:04:28 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/10 10:55:36 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	test_strchr(void);
 
 int	main(void)
 {
-	int		d;
+	int	d;
+	int	ALL;
 
+	ALL = 0;
 	srand(time(NULL));
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_ISALPHA");
 		d = -10;
@@ -52,7 +54,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_ISDIGIT");
 		d = 40;
@@ -64,7 +66,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_ISALNUM");
 		d = -10;
@@ -76,7 +78,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_ISASCII");
 		d = -10;
@@ -88,7 +90,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_ISPRINT");
 		d = -200;
@@ -100,7 +102,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_STRLEN");
 		assert_int(ft_strlen(NULL), ft_strlen(NULL));
@@ -114,7 +116,7 @@ int	main(void)
 		assert_int(ft_strlen("\t"), strlen("\t"));
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_MEMSET");
 		test_memset(ft_memset, memset, 'o', 12);
@@ -127,7 +129,7 @@ int	main(void)
 		test_memset(ft_memset, memset, 200, 21);
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n FT_BZERO");
 		test_bzero(ft_bzero, bzero, 12);
@@ -139,7 +141,7 @@ int	main(void)
 		test_bzero(ft_bzero, bzero, 101);
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n MEMCPY");
 		for (int i = 0; i < 20; i++)
@@ -148,7 +150,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (1 || ALL)
 	{
 		pr("\n MEMMOVE");
 		for (int i = 0; i < 20; i++)
@@ -157,7 +159,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n STRLCPY");
 		for (int i = 0; i < 20; i++)
@@ -166,7 +168,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n STRLCAT");
 		for (int i = 0; i < 20; i++)
@@ -175,7 +177,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (0)
+	if (0 || ALL)
 	{
 		pr("\n TOUPPER TOLOWER");
 		for (int i = 0; i < 120; i += 10)
@@ -185,7 +187,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1)
+	if (0 || ALL)
 	{
 		pr("\n STRCHR");
 		for (int i = 0; i < 10; i++)
@@ -332,26 +334,26 @@ void	test_memmove(void)
 	free(b);
 }
 
-size_t	strlcpy(char *dst, const char *src, size_t siz)
-{
-	char *d = dst;
-	const char *s = src;
-	size_t n = siz;
+// size_t	strlcpy(char *dst, const char *src, size_t siz)
+// {
+// 	char *d = dst;
+// 	const char *s = src;
+// 	size_t n = siz;
 
-	if (n != 0) {
-		while (--n != 0) {
-			if ((*d++ = *s++) == '\0')
-				break;
-		}
-	}
-	if (n == 0) {
-		if (siz != 0)
-			*d = '\0';
-		while (*s++)
-			;
-	}
-	return(s - src - 1);
-}
+// 	if (n != 0) {
+// 		while (--n != 0) {
+// 			if ((*d++ = *s++) == '\0')
+// 				break;
+// 		}
+// 	}
+// 	if (n == 0) {
+// 		if (siz != 0)
+// 			*d = '\0';
+// 		while (*s++)
+// 			;
+// 	}
+// 	return(s - src - 1);
+// }
 
 void	test_strlcpy(void)
 {
@@ -372,31 +374,31 @@ void	test_strlcpy(void)
 	free(b);
 }
 
-size_t strlcat(char *dst, const char *src, size_t siz)
-{
-	register char *d = dst;
-	register const char *s = src;
-	register size_t n = siz;
-	size_t dlen;
+// size_t strlcat(char *dst, const char *src, size_t siz)
+// {
+// 	register char *d = dst;
+// 	register const char *s = src;
+// 	register size_t n = siz;
+// 	size_t dlen;
 
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = siz - dlen;
+// 	while (n-- != 0 && *d != '\0')
+// 		d++;
+// 	dlen = d - dst;
+// 	n = siz - dlen;
 
-	if (n == 0)
-		return(dlen + strlen(s));
-	while (*s != '\0') {
-		if (n != 1) {
-			*d++ = *s;
-			n--;
-		}
-		s++;
-	}
-	*d = '\0';
+// 	if (n == 0)
+// 		return(dlen + strlen(s));
+// 	while (*s != '\0') {
+// 		if (n != 1) {
+// 			*d++ = *s;
+// 			n--;
+// 		}
+// 		s++;
+// 	}
+// 	*d = '\0';
 
-	return(dlen + (s - src));
-}
+// 	return(dlen + (s - src));
+// }
 
 void	test_strlcat(void)
 {
@@ -424,8 +426,8 @@ void	test_strchr(void)
 	char	a;
 	char	*src;
 
-	src = ft_rand_str(50,100);
-	a = ft_rand_int(50,100);
+	src = ft_rand_str(50, 100);
+	a = ft_rand_int(50, 100);
 	assert_str(ft_strchr(src, a), strchr(src, a));
 	free(src);
 }

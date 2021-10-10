@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 16:20:02 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/10 10:39:56 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	*d;
+	char		*d;
 	const char	*s;
-	size_t	n;
-	int	buff_size;
+	size_t		n;
+	int			buff_size;
 
 	d = dst;
 	s = src;
@@ -34,7 +34,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	while (*s)
 	{
 		if (n + 1 >= size)
-			break;
+			break ;
 		*d++ = *s++;
 		n++;
 	}

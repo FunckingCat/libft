@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 18:52:23 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/10 10:55:07 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*ch_dst;
-	char	*ch_src;
-	char	*tmp;
-	int		m;
+	int	i;
 
-	tmp = malloc(n);
-	ch_dst = (char *)dest;
-	ch_src = (char *)src;
-	m = n;
-	while (n-- > 0)
-		*tmp++ = *ch_src++;
-	n = m;
-	tmp -= n;
-	while (n-- > 0)
-		*ch_dst++ = *tmp++;
-	free(tmp - m);
+	if (!dest || !src)
+		return (NULL);
+	if (dest > src)
+	{
+		i = (int)n - 1;
+		while (i >= 0)
+		{
+			*(char *)(dest + i) = *(char *)(src + i);
+			i--;
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < (int)n)
+		{
+			*(char *)(dest + i) = *(char *)(src + i);
+			i++;
+		}
+	}
 	return (dest);
 }
