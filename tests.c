@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/10 10:55:36 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/10 11:29:54 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ int	main(void)
 		}
 		pr("<---------->");
 	}
-	if (1 || ALL)
+	if (0 || ALL)
 	{
 		pr("\n MEMMOVE");
 		for (int i = 0; i < 20; i++)
@@ -194,6 +194,29 @@ int	main(void)
 		{
 			test_strchr();
 		}
+		pr("<---------->");
+	}
+	if (1 || ALL)
+	{
+		pr("\n ATOI");
+		assert_int(ft_atoi("12345"), atoi("12345"));
+		assert_int(ft_atoi("-12345"), atoi("-12345"));
+		assert_int(ft_atoi("1"), atoi("1"));
+		assert_int(ft_atoi("-1"), atoi("-1"));
+		assert_int(ft_atoi("0"), atoi("0"));
+		assert_int(ft_atoi("asd"), atoi("asd"));
+		assert_int(ft_atoi("-asd"), atoi("-asd"));
+		assert_int(ft_atoi("12345asd"), atoi("12345asd"));
+		assert_int(ft_atoi("-123asd45"), atoi("-123asd45"));
+		assert_int(ft_atoi("2147483647"), atoi("2147483647"));
+		assert_int(ft_atoi("-2147483647"), atoi("-2147483647"));
+		assert_int(ft_atoi("-2147483648"), atoi("-2147483648"));
+		assert_int(ft_atoi("+12345"), atoi("+12345"));
+		assert_int(ft_atoi("++12345"), atoi("++12345"));
+		assert_int(ft_atoi("+-12345"), atoi("+-12345"));
+		assert_int(ft_atoi("--1"), atoi("--1"));
+		assert_int(ft_atoi("-+1"), atoi("-+1"));
+		assert_int(ft_atoi("-0"), atoi("-0"));
 		pr("<---------->");
 	}
 	return (0);
