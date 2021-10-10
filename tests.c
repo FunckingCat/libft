@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:16:23 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/10 11:29:54 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/10 12:18:33 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,6 +217,8 @@ int	main(void)
 		assert_int(ft_atoi("--1"), atoi("--1"));
 		assert_int(ft_atoi("-+1"), atoi("-+1"));
 		assert_int(ft_atoi("-0"), atoi("-0"));
+		assert_int(ft_atoi("\n\n\n  -46\b9 \n5d6"), atoi("\n\n\n  -46\b9 \n5d6"));
+		assert_int(ft_atoi("\t\n\r\v\f  469 \n"), atoi("\t\n\r\v\f  469 \n"));
 		pr("<---------->");
 	}
 	return (0);

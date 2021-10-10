@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/10 11:29:09 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/10 12:20:09 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	ft_atoi(const char *str)
 	int			neg;
 
 	neg = 1;
-	if (*str == '+')
-	{
+	while (*str == '\n' || *str == ' ' || *str == '\t'
+		|| *str == '\r' || *str == '\v' || *str == '\f')
 		str++;
-	}
+	if (*str == '+')
+		str++;
 	else if (*str == '-')
 	{
 		neg = -1;
