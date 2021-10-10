@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/10 15:49:07 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/10 16:58:24 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *h, const char *n, size_t len)
 {
-	while (n-- > 0 && (*s1 || *s2))
+	size_t	hl;
+	size_t	nl;
+	size_t	i;
+
+	hl = ft_strlen(h);
+	nl = ft_strlen(n);
+	if (hl != 0 && nl != 0 && len == 0)
+		return (0);
+	if (!hl && !nl)
+		return ((char *)h);
+	i = 0;
+	while (*h)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		if (i + ft_strlen(n) > len)
+			return (NULL);
+		if (!ft_strncmp(h, n, ft_strlen(n)))
+			return ((char *)h);
+		h++;
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
