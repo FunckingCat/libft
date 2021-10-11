@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/11 14:53:34 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/11 14:59:31 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
+	size_t	i;
+
+	i = 0;
 	if (n == 0)
 		return (NULL);
-	while (n-- > 0)
+	while (i < n)
 	{
 		if (*(char *)s == (char)c)
 			return ((void *)s);
 		s++;
-		n--;
+		i++;
 	}
 	return (NULL);
 }
