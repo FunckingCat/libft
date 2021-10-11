@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/11 14:55:04 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:15:46 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	n;
+	char	*str;
+	int		len;
 
-	n = ft_strlen(s) + 1;
-	while (n >= 0)
+	len = ft_strlen(s);
+	str = (char *)s + len - 1;
+	if (c == '\0')
+		return (str + 1);
+	while (len-- != 0)
 	{
-		if (s[n] == (char)c)
-			return ((char *)(s + n));
-		n--;
+		if (*str == c)
+			return (str);
+		str--;
 	}
 	return (NULL);
 }

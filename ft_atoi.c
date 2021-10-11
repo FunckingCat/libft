@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/10 12:20:09 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:39:28 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int	ft_atoi(const char *str)
 {
-	long int	res;
-	int			neg;
+	long long int	res;
+	int				neg;
 
 	neg = 1;
-	while (*str == '\n' || *str == ' ' || *str == '\t'
-		|| *str == '\r' || *str == '\v' || *str == '\f')
+	while (ft_strchr("\n \t\r\v\f", *str))
 		str++;
 	if (*str == '+')
 		str++;
@@ -33,9 +32,10 @@ int	ft_atoi(const char *str)
 	else
 		return (0);
 	while (ft_isdigit(*(str + 1)))
-	{
-		res = res * 10 + (*(str + 1) - 48);
-		str++;
-	}
+		res = res * 10 + (*(str++ + 1) - 48);
+	if (neg * res > (long long int)INT_MAX)
+		return (-1);
+	if (neg * res < (long long int)INT_MIN)
+		return (0);
 	return ((int)(neg * res));
 }
