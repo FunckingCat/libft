@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 18:12:49 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/11 14:51:44 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	char			*temp;
 	unsigned char	m;
 
-	if (b == NULL)
-		return (NULL);
 	m = (unsigned char)c;
 	temp = (char *)b;
 	while (len > 0)

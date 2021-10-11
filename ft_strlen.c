@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 16:20:02 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/11 14:53:51 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlen(const char *s)
 	int	res;
 
 	res = 0;
-	if (s == NULL)
-		return (0);
 	while (*s++)
 		res++;
 	return (res);

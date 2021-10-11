@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/10 17:08:44 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/11 14:53:34 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (!(char *)s)
-		return (NULL);
 	if (n == 0)
 		return (NULL);
 	while (n-- > 0)
