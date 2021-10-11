@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/10 15:02:50 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:01:46 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	t1 = (unsigned const char *)s1;
 	t2 = (unsigned const char *)s2;
-	if (t1 == NULL || t2 == NULL)
-		return (0);
 	while (n)
 	{
 		if (*t1 != *t2)
