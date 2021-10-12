@@ -33,13 +33,13 @@ static	int	ft_disch(long int n)
 		grade++;
 		ten *= 10;
 	}
-	return grade;
+	return (grade);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int		dis;
+	char		*res;
+	int			dis;
 	long int	ln;
 
 	ln = (long int)n;
@@ -50,11 +50,8 @@ char	*ft_itoa(int n)
 		res = malloc(dis + 1);
 	if (!res)
 		return (NULL);
-	if (ln < 0)
-	{
+	if (ln < 0 && dis++ != -1)
 		res[0] = '-';
-		dis++;
-	}
 	ln = ft_abs(ln);
 	res[dis--] = '\0';
 	if (ln == 0)
@@ -66,9 +63,3 @@ char	*ft_itoa(int n)
 	}
 	return (res);
 }
-
-// int main()
-// {
-// 	printf("%s\n", ft_itoa(INT_MIN));
-// 	return (0);
-// }
