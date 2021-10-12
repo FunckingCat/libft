@@ -12,17 +12,17 @@
 
 #include "libft.h"
 
-static	int	ft_abs(int n)
+static	long int	ft_abs(long int n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
 
-static	int	ft_disch(int n)
+static	int	ft_disch(long int n)
 {
-	int		grade;
-	int		ten;
+	int			grade;
+	long int	ten;
 
 	grade = 0;
 	ten = 1;
@@ -40,34 +40,35 @@ char	*ft_itoa(int n)
 {
 	char	*res;
 	int		dis;
+	long int	ln;
 
-	dis = ft_disch(n);
-	if (n < 0)
+	ln = (long int)n;
+	dis = ft_disch(ln);
+	if (ln < 0)
 		res = malloc(dis + 2);
 	else
 		res = malloc(dis + 1);
 	if (!res)
 		return (NULL);
-	if (n < 0)
+	if (ln < 0)
 	{
 		res[0] = '-';
 		dis++;
 	}
-	n = ft_abs(n);
-	res[dis + 1] = '\0';
-	while (dis > 0)
+	ln = ft_abs(ln);
+	res[dis--] = '\0';
+	if (ln == 0)
+		res[0] = '0';
+	while (ln > 0)
 	{
-		res[dis-- - 1] = n % 10;
-		n /= 10;
+		res[dis--] = ln % 10 + '0';
+		ln /= 10;
 	}
 	return (res);
 }
 
-int main()
-{
-	char *res;
-
-	res = ft_itoa(199);
-	printf("%s\n", res);
-	return (0);
-}
+// int main()
+// {
+// 	printf("%s\n", ft_itoa(INT_MIN));
+// 	return (0);
+// }
