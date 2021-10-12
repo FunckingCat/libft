@@ -31,19 +31,11 @@ static	size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+static	char **ft_body(char **res, size_t count, char const *s, int c)
 {
-	char	**res;
 	char	*end;
-	size_t	count;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
-	count = ft_count_words(s, c);
-	res = malloc((count + 1) * sizeof(char *));
-	if (!res)
-		return (NULL);
 	i = 0;
 	while (i < count)
 	{
@@ -64,15 +56,19 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-// int	main(void)
-// {
-// 	char **split;
+char	**ft_split(char const *s, char c)
+{
+	char	**res;
+	size_t	count;
 
-// 	split = ft_split("---1---1234----12345-----12345678-----", '-');
-// 	while (*split)
-// 	{
-// 		printf("%s\n", *split);
-// 		split++;
-// 	}
-// 	return (0);
-// }
+	if (!s)
+		return (NULL);
+	count = ft_count_words(s, c);
+	res = malloc((count + 1) * sizeof(char *));
+	if (!res)
+		return (NULL);
+	res = ft_body(res, count, s, c);
+	if (!res)
+		return (NULL);
+	return (res);
+}
