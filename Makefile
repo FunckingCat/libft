@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:16:17 by tyamcha           #+#    #+#              #
-#    Updated: 2021/10/13 17:31:05 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/10/13 18:36:38 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,6 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 
-re: fclean bonus
+re: fclean all
 
 .PHONY: all clean fclean re bonus 
