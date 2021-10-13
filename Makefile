@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:16:17 by tyamcha           #+#    #+#              #
-#    Updated: 2021/10/13 17:19:09 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/10/13 17:31:05 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(LIBC) $(NAME) $(OBJ)
+	$(LIBC) $(NAME) $(OBJ) 
 	$(LIBR) $(NAME)
 	
 %.o: %.c
@@ -54,6 +54,6 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 
-re: fclean all
+re: fclean bonus
 
 .PHONY: all clean fclean re bonus 
