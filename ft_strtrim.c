@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 16:20:02 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/13 13:28:56 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	end = ft_strlen(s1 + start);
 	if (end)
-		while (s1[end + start - 1] != 0 && ft_strchr(set, s1[end + start - 1]) != 0)
+		while (s1[end + start - 1] != 0
+			&& ft_strchr(set, s1[end + start - 1]) != 0)
 			end--;
 	res = malloc(sizeof(char) * end + 1);
 	if (!res)

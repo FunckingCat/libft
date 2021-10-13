@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/06 16:20:02 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/13 13:28:15 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	size_t	ft_count_words(char const *s, char c)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	while (*s)
@@ -31,7 +31,7 @@ static	size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static	char **ft_body(char **res, size_t count, char const *s, int c)
+static	char	**ft_body(char **res, size_t count, char const *s, int c)
 {
 	char	*end;
 	size_t	i;
