@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:16:17 by tyamcha           #+#    #+#              #
-#    Updated: 2021/10/13 14:14:38 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/10/13 14:45:30 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,13 @@ SRC_FILES := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_calloc.c ft_strdup.c \
 	ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 	ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+BONUS_FILES = ft_lstnew.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ_BONUS_FILES = $(BONUS_FILES:.c=.o)
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJS = $(addprefix $(SRC_DIR), $(OBJ_FILES))
+BONS = $(addprefix $(SRC_DIR), $(BONUS_FILES))
+BONS_OBJS = $(addprefix $(SRC_DIR), $(OBJ_BONUS_FILES))
 HEADER := -I includes/
 LIBC := ar -rc
 LIBR := ranlib
@@ -32,6 +36,8 @@ all: obj $(NAME)
 
 obj: $(SRCS)
 
+objbonus: $(BONS)
+
 $(SRC_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) $< -o $@ 
 
@@ -39,8 +45,12 @@ $(NAME): $(OBJS)
 	$(LIBC) $(NAME) $(OBJS)
 	$(LIBR) $(NAME)
 
+bonus : obj objbonus $(OBJS) $(BONS_OBJS)
+	$(LIBC) $(NAME) $(OBJS) $(BONS_OBJS)
+	$(LIBR) $(NAME)
+
 clean:
-	/bin/rm -f $(OBJS)
+	/bin/rm -f $(OBJS) $(BONS_OBJS)
 
 fclean: clean
 	/bin/rm -f $(NAME)
