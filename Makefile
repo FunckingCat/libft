@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:16:17 by tyamcha           #+#    #+#              #
-#    Updated: 2021/10/13 13:23:31 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/10/13 14:14:38 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,4 +47,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
