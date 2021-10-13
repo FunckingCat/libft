@@ -28,7 +28,7 @@ static	int	ft_disch(long int n)
 	ten = 1;
 	if (ft_abs(n) < 2)
 		grade++;
-	while (ten < ft_abs(n))
+	while (ten <= ft_abs(n))
 	{
 		grade++;
 		ten *= 10;
@@ -62,4 +62,10 @@ char	*ft_itoa(int n)
 		ln /= 10;
 	}
 	return (res);
+}
+
+int main()
+{
+	printf("%s\n", ft_itoa(10));
+	return (0);
 }
