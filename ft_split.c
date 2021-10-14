@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:34:30 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/10/13 13:28:15 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/10/14 16:43:23 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ static	size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
+static void	ft_free_res(char **res)
+{
+	size_t	i;
+
+	i = 0;
+	while (res[i])
+		free(res[i++]);
+	free(res);
+}
+
 static	char	**ft_body(char **res, size_t count, char const *s, int c)
 {
 	char	*end;
@@ -45,10 +55,12 @@ static	char	**ft_body(char **res, size_t count, char const *s, int c)
 		if (!end)
 			end = ft_strchr(s, '\0');
 		res[i] = malloc(end - s + 1);
-		if (!res)
+		if (!res[i])
+		{
+			ft_free_res(res);
 			return (NULL);
-		ft_strlcpy(res[i], s, end - s + 1);
-		i++;
+		}
+		ft_strlcpy(res[i++], s, end - s + 1);
 		while (*s && *s != c)
 			s++;
 	}
