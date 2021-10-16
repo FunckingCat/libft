@@ -6,15 +6,15 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:16:17 by tyamcha           #+#    #+#              #
-#    Updated: 2021/10/13 18:36:38 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/10/16 09:09:09 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := libft.a
-CC := gcc
-CFLAGS := -Wall -Werror -Wextra -c
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -c
 
-SRC_FILES := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+SRC_FILES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c \
 	ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_atoi.c ft_strrchr.c \
 	ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_calloc.c ft_strdup.c \
@@ -26,9 +26,9 @@ BONUS_FILES = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_
 OBJECTS = $(SRC_FILES:.c=.o)
 BON_OBJECTS = $(BONUS_FILES:.c=.o)
 
-HEADER := -I includes/
-LIBC := ar -rc
-LIBR := ranlib
+HEADER = libft.h
+LIBC = ar -rc
+LIBR = ranlib
 
 ifdef TEMP
 	OBJ = $(OBJECTS) $(BON_OBJECTS)
@@ -38,11 +38,11 @@ endif
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	$(LIBC) $(NAME) $(OBJ) 
-	$(LIBR) $(NAME)
+	$(LIBR) $(NAME) 
 	
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@ 
 
 bonus :
